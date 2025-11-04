@@ -107,7 +107,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       overflow: hidden;
       margin: 40px 20px;
-      padding: 20px;
     }
 
     .favourite-dish img {
@@ -141,7 +140,7 @@
     }
 
     /* Registration Form */
-    .registerForm {
+    .registerForm #regForm{
       background-color: white;
       width: 95%;
       margin: 40px auto;
@@ -279,10 +278,12 @@
   </section>
 
   <section class="registerForm">
-    <input type="text" placeholder="Your Full Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <input type="tel" placeholder="Your Phone Number" required />
-    <button type="submit">Register Now</button>
+    <form id="regForm" action="">
+      <input type="text" id="name" placeholder="Your Full Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="tel" id="phone" placeholder="Your Phone Number" required />
+      <button type="submit">Register Now</button>
+    </form>
   </section>
 
   <footer>
@@ -311,6 +312,39 @@
       vegItems.forEach(i => i.style.display = 'block');
       nonVegItems.forEach(i => i.style.display = 'block');
     });
+    document.getElementById("regForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message");
+
+    // Basic validation
+    if (name === "" || email === "" || phone === "") {
+      alert("⚠️ Please fill in all fields.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("❌ Please enter a valid email address.");
+      return;
+    }
+
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+      alert("❌ Please enter a valid 10-digit phone number.");
+      return;
+    }
+    
+
+     alert(`✅ Thank you, ${name}! Your registration is successful.`);
+    document.getElementById("regForm").reset();
+  });
+
   </script>
 </body>
 </html>
+
