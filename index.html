@@ -263,10 +263,10 @@
   </section>
 
   <section class="favourite-dish">
-    <img src="images/pani-puri.png" alt="">
+    <img src="images/chole-bhature.png" alt="">
     <div class="favourite-info">
-      <h2>Favourite Dish</h2>
-      <p><strong>Pani Puri</strong> – The festival’s star for its burst of tangy & spicy flavors, loved by all ages. A quintessential street snack bringing people together!</p>
+      <h2>Dish of the month </h2>
+      <p><strong>Chole Bhature</strong> – The festival’s star for its is Chole Bhature bringing people together!</p>
     </div>
   </section>
 
@@ -320,32 +320,30 @@
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const message = document.getElementById("message");
-
-    // Basic validation
     if (name === "" || email === "" || phone === "") {
-      alert("⚠️ Please fill in all fields.");
+      alert("Please fill in all fields.");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      alert("❌ Please enter a valid email address.");
+      alert("Please enter a valid email address.");
       return;
     }
 
     const phonePattern = /^[0-9]{10}$/;
     if (!phonePattern.test(phone)) {
-      alert("❌ Please enter a valid 10-digit phone number.");
+      alert("Please enter a valid 10-digit phone number.");
       return;
     }
     
-
-     alert(`✅ Thank you, ${name}! Your registration is successful.`);
+     alert(`Thank you, ${name}! Your registration is successful.`);
     document.getElementById("regForm").reset();
   });
 
   </script>
 </body>
 </html>
+
 
 
